@@ -5,6 +5,7 @@
  */
 package cbr;
 
+import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -23,7 +24,9 @@ import representation.CaseResult;
  * @author Felipe
  */
 public class CBRTruco {
-                
+    
+    private final static String qualquerCarta = "Caso mais semelhante resultou em uma derrota, jogue a carta de menor valor.";
+    
     public static String pedirTruco(NNConfig simconfig, CBRCaseBase casebase, Integer niveltruco, Integer carta1, Integer carta2, Integer carta3, Integer cartaAdv1, Integer cartaAdv2, Integer cartaAdv3){
         List<CBRQuery> querylist= new ArrayList<CBRQuery>();
         List<Integer[]> cartasjogador = new ArrayList<Integer[]>();
@@ -206,9 +209,56 @@ public class CBRTruco {
         }
         if(result != null){
             System.out.println(result.getJ1CartaJogadaInt());
-            return result.getJ1CartaJogada();
+            return String.valueOf(result.getJ1CartaJogadaInt());
+            //return result.getJ1CartaJogada();
         }
-        return "Nenhum caso semelhante encontrado, jogue qualquer carta.";
+        return qualquerCarta;
+    }
+    
+    public static String closestCard(String carta1Valor, String carta1Naipe, String carta2Valor, String carta2Naipe, String carta3Valor, String carta3Naipe, String cartaJogada){
+        if(cartaJogada.equals(qualquerCarta))
+            return qualquerCarta;
+        Integer cartaJogadaInt = Integer.parseInt(cartaJogada);
+        Integer carta1 = CBRTrucoUtil.getCardValue(carta1Valor, carta1Naipe);
+        Integer carta2 = CBRTrucoUtil.getCardValue(carta2Valor, carta2Naipe);
+        Integer carta3 = CBRTrucoUtil.getCardValue(carta3Valor, carta3Naipe);
+        List<AbstractMap.SimpleEntry> listaCartas = new ArrayList<AbstractMap.SimpleEntry>();
+        if(carta1 != null){
+            Integer prox1 = cartaJogadaInt - carta1;
+            AbstractMap.SimpleEntry card1 = new AbstractMap.SimpleEntry<String, Integer>(carta1Valor + " de " + carta1Naipe, prox1);
+            listaCartas.add(card1);
+        }
+        if(carta2 != null){
+            Integer prox2 = cartaJogadaInt - carta2;
+            AbstractMap.SimpleEntry card2 = new AbstractMap.SimpleEntry<String, Integer>(carta2Valor + " de " + carta2Naipe, prox2);
+            listaCartas.add(card2);
+        }
+        if(carta3 != null){
+            Integer prox3 = cartaJogadaInt - carta3;
+            AbstractMap.SimpleEntry card3 = new AbstractMap.SimpleEntry<String, Integer>(carta3Valor + " de " + carta3Naipe, prox3);
+            listaCartas.add(card3);
+        }
+        Integer cartaProxima = -50;
+        String cartaProximaStr = "";
+        for(AbstractMap.SimpleEntry<String, Integer> card : listaCartas){
+            Integer value = card.getValue();
+            System.out.println("Valor: " + value.toString());
+            if(value <= 0){
+                if(value > cartaProxima){
+                    cartaProxima = value;
+                    cartaProximaStr = card.getKey();
+                }
+            }
+        }
+        if(cartaProxima == -50){
+            for(AbstractMap.SimpleEntry<String, Integer> card : listaCartas){
+                if(card.getValue() > cartaProxima){
+                    cartaProxima = card.getValue();
+                    cartaProximaStr = card.getKey();
+                }
+            }
+        }
+        return cartaProximaStr;
     }
     
 }

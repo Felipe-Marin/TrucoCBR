@@ -414,21 +414,34 @@ public class telaprincipal extends javax.swing.JFrame {
         Integer carta2 = null;
         Integer carta3 = null;
         Integer cartaadv = null;
+        String carta1valor = null;
+        String carta1naipe = null;
+        String carta2valor = null;
+        String carta2naipe = null;
+        String carta3valor = null;
+        String carta3naipe = null;
         if(!jtnum_carta_1.getText().isEmpty()){
-             carta1 = CBRTrucoUtil.getCardValue(jtnum_carta_1.getText(), (String)jcbnaipe_carta1.getSelectedItem());
+            carta1valor = jtnum_carta_1.getText();
+            carta1naipe = (String)jcbnaipe_carta1.getSelectedItem();
+            carta1 = CBRTrucoUtil.getCardValue(jtnum_carta_1.getText(), (String)jcbnaipe_carta1.getSelectedItem());
         }
         if(!jtnum_carta_2.getText().isEmpty()){
-             carta2 = CBRTrucoUtil.getCardValue(jtnum_carta_2.getText(), (String)jcbnaipe_carta2.getSelectedItem());
+            carta2 = CBRTrucoUtil.getCardValue(jtnum_carta_2.getText(), (String)jcbnaipe_carta2.getSelectedItem());
+            carta2valor = jtnum_carta_2.getText();
+            carta2naipe = (String)jcbnaipe_carta2.getSelectedItem();
         }
         if(!jtnum_carta_3.getText().isEmpty()){
-             carta3 = CBRTrucoUtil.getCardValue(jtnum_carta_3.getText(), (String)jcbnaipe_carta3.getSelectedItem());
+            carta3valor = jtnum_carta_3.getText();
+            carta3naipe = (String)jcbnaipe_carta3.getSelectedItem();
+            carta3 = CBRTrucoUtil.getCardValue(jtnum_carta_3.getText(), (String)jcbnaipe_carta3.getSelectedItem());
         }
         if(!jtnum_carta_jog.getText().isEmpty()){
-             cartaadv = CBRTrucoUtil.getCardValue(jtnum_carta_jog.getText(), (String)jcbnaipe_cartajog.getSelectedItem());
+            cartaadv = CBRTrucoUtil.getCardValue(jtnum_carta_jog.getText(), (String)jcbnaipe_cartajog.getSelectedItem());
         }
         
         Integer rodada = Integer.parseInt((String)jcbrodada.getSelectedItem());
         String output = CBRTruco.jogarCarta(simconfig, casebase, rodada, carta1, carta2, carta3, cartaadv);
+        output = CBRTruco.closestCard(carta1valor, carta1naipe, carta2valor, carta2naipe, carta3valor, carta3naipe, output);
         JOptionPane.showMessageDialog(this, output);
         //System.out.println("Teste");
         //CBRTruco.jogarCarta(simconfig, casebase, 1, 3, 2, 1, 5);
