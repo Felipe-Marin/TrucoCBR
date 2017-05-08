@@ -15,7 +15,7 @@ import representation.CaseDescription;
 public class CBRTrucoQuery {
     
     
-    public static CBRQuery pedirEnvido(int nivelEnvido, Integer carta1, Integer carta2, Integer carta3){
+    public static CBRQuery pedirEnvido(Integer nivelEnvido, Integer carta1, Integer carta2, Integer carta3){
         CBRQuery query = new CBRQuery();
         CaseDescription caseEnvido = new CaseDescription();
         caseEnvido.setRodada(1);
@@ -29,7 +29,7 @@ public class CBRTrucoQuery {
         return query;
     }
     
-    public static CBRQuery aceitarEnvido(int nivelEnvido, Integer carta1, Integer carta2, Integer carta3){
+    public static CBRQuery aceitarEnvido(Integer nivelEnvido, Integer carta1, Integer carta2, Integer carta3){
         CBRQuery query = new CBRQuery();
         CaseDescription caseEnvido = new CaseDescription();
         caseEnvido.setRodada(1);
@@ -60,7 +60,7 @@ public class CBRTrucoQuery {
         return query;
     }
     
-    public static CBRQuery pedirTruco(int nivelTruco, Integer carta1, Integer carta2, Integer carta3, Integer cartaadv1, Integer cartaadv2, Integer cartaadv3){
+    public static CBRQuery pedirTruco(Integer nivelTruco, Integer carta1, Integer carta2, Integer carta3, Integer cartaadv1, Integer cartaadv2, Integer cartaadv3){
         CBRQuery query = new CBRQuery();
         CaseDescription caseTruco = new CaseDescription();
         caseTruco.setNivelTruco(nivelTruco);
@@ -76,7 +76,7 @@ public class CBRTrucoQuery {
         return query;
     }
     
-    public static CBRQuery aceitarTruco(int nivelTruco, Integer carta1, Integer carta2, Integer carta3, Integer cartaadv1, Integer cartaadv2, Integer cartaadv3){
+    public static CBRQuery aceitarTruco(Integer nivelTruco, Integer carta1, Integer carta2, Integer carta3, Integer cartaadv1, Integer cartaadv2, Integer cartaadv3){
         CBRQuery query = new CBRQuery();
         CaseDescription caseTruco = new CaseDescription();
         caseTruco.setNivelTruco(nivelTruco);

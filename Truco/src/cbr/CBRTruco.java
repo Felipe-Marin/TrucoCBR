@@ -67,6 +67,7 @@ public class CBRTruco {
             }
         }
         if(result != null){
+            System.out.println("Id do resultado: " + result.getResultID());
             System.out.println(result.getGanhouMao());
             if(result.getGanhouMao())
                 return "Pedir truco";

@@ -7,6 +7,7 @@ package cbr;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 import jcolibri.cbrcore.CBRCase;
 import jcolibri.cbrcore.CBRCaseBase;
@@ -29,21 +30,26 @@ public class CBRTrucoTest {
         for(CBRCase caseX : caselist){
             CaseDescription desc = (CaseDescription) caseX.getDescription();
             if(desc.getTruco() == true){
+                System.out.println("Caso adicionado");
                 caseTrucoList.add(caseX);
             }
         }
         for(CBRCase caseX : caseTrucoList){
             numTotal++;
-            List<CBRCase> listaCaso = new ArrayList();
+            System.out.println("Testando caso" + numTotal.toString());
+            Collection<CBRCase> listaCaso = new ArrayList();
+            //Collection<CBRCase> casoCol = new ArrayList();
             listaCaso.add(caseX);
             casebase.forgetCases(listaCaso);
             CaseDescription desc = (CaseDescription) caseX.getDescription();
+            System.out.println("Id do caso removido: " + desc.getDescriptionID());
             CaseResult result = (CaseResult) caseX.getResult();
             String retorno = CBRTruco.pedirTruco(simconfig, casebase, desc.getNivelTruco(), desc.getJ1Carta1(), desc.getJ1Carta2(), desc.getJ1Carta3(), desc.getJ2Carta1(), desc.getJ2Carta2(), desc.getJ2Carta3());
             if((retorno.equals("Pedir truco") && result.getGanhouMao()) || (retorno.equals("Não pedir truco") && !result.getGanhouMao())){
+                System.out.println("Retorno: " + retorno + "GanhouMao? = " + result.getGanhouMao());
                 numAcertos++;
             }
-            casebase.learnCases(listaCaso);
+            //casebase.learnCases(listaCaso);
         }
         Double porcentagem = numAcertos.doubleValue()/numTotal.doubleValue() * 100;
         return "Pedir Truco: " + numAcertos.toString() + " acertos em um total de " + numTotal.toString() + " testados. (" + porcentagem.toString() + "%).";

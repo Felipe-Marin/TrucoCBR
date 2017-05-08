@@ -552,7 +552,7 @@ public class telaprincipal extends javax.swing.JFrame {
         if(!jtnum_carta_3.getText().isEmpty()){
              carta3 = CBRTrucoUtil.getCardValue(jtnum_carta_3.getText(), (String)jcbnaipe_carta3.getSelectedItem());
         }
-        if(!jtnivelenvido.getText().isEmpty()){
+        if(!jtnivelenvido.getText().isEmpty() && jtnivelenvido.getText().length() > 0){
              nivelEnvido = Integer.parseInt(jtnivelenvido.getText());
         }
         String output = CBRTruco.aceitarEnvido(simconfig, casebase, nivelEnvido, carta1, carta2, carta3);
