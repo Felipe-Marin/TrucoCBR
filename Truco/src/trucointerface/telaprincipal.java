@@ -6,6 +6,7 @@
 package trucointerface;
 
 import cbr.CBRTruco;
+import cbr.CBRTrucoTest;
 import cbr.CBRTrucoUtil;
 import javax.swing.JOptionPane;
 import jcolibri.cbrcore.CBRCaseBase;
@@ -43,6 +44,7 @@ public class telaprincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton3 = new javax.swing.JButton();
         jtnum_carta_1 = new javax.swing.JTextField();
         jtnum_carta_2 = new javax.swing.JTextField();
         jtnum_carta_3 = new javax.swing.JTextField();
@@ -81,6 +83,13 @@ public class telaprincipal extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         jtnivelenvido = new javax.swing.JTextField();
         jbaceitarenvido = new javax.swing.JButton();
+        jLabel17 = new javax.swing.JLabel();
+        btTestPedirTruco = new javax.swing.JButton();
+        btTestAceitarTruco = new javax.swing.JButton();
+        btTestPedirEnvido = new javax.swing.JButton();
+        btTestAceitarEnvido = new javax.swing.JButton();
+
+        jButton3.setText("PEDIR TRUCO");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Truco Gaudério");
@@ -171,6 +180,36 @@ public class telaprincipal extends javax.swing.JFrame {
         jbaceitarenvido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbaceitarenvidoActionPerformed(evt);
+            }
+        });
+
+        jLabel17.setText("Testes:");
+
+        btTestPedirTruco.setText("PEDIR TRUCO");
+        btTestPedirTruco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btTestPedirTrucoActionPerformed(evt);
+            }
+        });
+
+        btTestAceitarTruco.setText("ACEITAR TRUCO");
+        btTestAceitarTruco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btTestAceitarTrucoActionPerformed(evt);
+            }
+        });
+
+        btTestPedirEnvido.setText("PEDIR ENVIDO");
+        btTestPedirEnvido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btTestPedirEnvidoActionPerformed(evt);
+            }
+        });
+
+        btTestAceitarEnvido.setText("ACEITAR ENVIDO");
+        btTestAceitarEnvido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btTestAceitarEnvidoActionPerformed(evt);
             }
         });
 
@@ -269,8 +308,17 @@ public class telaprincipal extends javax.swing.JFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jtnum_carta_4, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jcbnaipe_carta4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
-                .addGap(35, 35, 35))
+                                        .addComponent(jcbnaipe_carta4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                    .addComponent(jLabel17)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btTestAceitarTruco, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btTestAceitarEnvido, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btTestPedirTruco, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btTestPedirEnvido, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(28, 28, 28))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -309,11 +357,14 @@ public class telaprincipal extends javax.swing.JFrame {
                             .addComponent(jLabel15)
                             .addComponent(jtniveltruco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel16)
-                            .addComponent(jtnivelenvido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jtnivelenvido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel17))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jbpedirenvido)
-                            .addComponent(jbpedirtruco)))
+                            .addComponent(jbpedirtruco)
+                            .addComponent(btTestPedirTruco)
+                            .addComponent(btTestPedirEnvido)))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel9)
@@ -337,9 +388,13 @@ public class telaprincipal extends javax.swing.JFrame {
                             .addComponent(jcbnaipe_carta6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel14))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jbaceitartruco)
-                    .addComponent(jbaceitarenvido))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jbaceitartruco)
+                        .addComponent(jbaceitarenvido))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btTestAceitarTruco)
+                        .addComponent(btTestAceitarEnvido)))
                 .addContainerGap(12, Short.MAX_VALUE))
         );
 
@@ -504,6 +559,26 @@ public class telaprincipal extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, output);
     }//GEN-LAST:event_jbaceitarenvidoActionPerformed
 
+    private void btTestPedirTrucoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btTestPedirTrucoActionPerformed
+        String output = CBRTrucoTest.testPedirTruco(simconfig, casebase);
+        JOptionPane.showMessageDialog(this, output);
+    }//GEN-LAST:event_btTestPedirTrucoActionPerformed
+
+    private void btTestAceitarTrucoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btTestAceitarTrucoActionPerformed
+        String output = CBRTrucoTest.testAceitarTruco(simconfig, casebase);
+        JOptionPane.showMessageDialog(this, output);
+    }//GEN-LAST:event_btTestAceitarTrucoActionPerformed
+
+    private void btTestPedirEnvidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btTestPedirEnvidoActionPerformed
+        String output = CBRTrucoTest.testPedirEnvido(simconfig, casebase);
+        JOptionPane.showMessageDialog(this, output);
+    }//GEN-LAST:event_btTestPedirEnvidoActionPerformed
+
+    private void btTestAceitarEnvidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btTestAceitarEnvidoActionPerformed
+        String output = CBRTrucoTest.testAceitarEnvido(simconfig, casebase);
+        JOptionPane.showMessageDialog(this, output);
+    }//GEN-LAST:event_btTestAceitarEnvidoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -543,6 +618,11 @@ public class telaprincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btTestAceitarEnvido;
+    private javax.swing.JButton btTestAceitarTruco;
+    private javax.swing.JButton btTestPedirEnvido;
+    private javax.swing.JButton btTestPedirTruco;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -551,6 +631,7 @@ public class telaprincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

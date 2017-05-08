@@ -24,7 +24,6 @@ public class CBRTrucoQuery {
         caseEnvido.setJ1Carta1(carta1);
         caseEnvido.setJ1Carta2(carta2);
         caseEnvido.setJ1Carta3(carta3);
-        //adicionar novas variaveis de aceita e nao aceita
         query.setDescription(caseEnvido);
         
         return query;
